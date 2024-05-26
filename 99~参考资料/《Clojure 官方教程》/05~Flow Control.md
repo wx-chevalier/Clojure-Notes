@@ -279,7 +279,7 @@ user=> (for [letter [:a :b]
 - `ex-data` gets the map back out
   - Or `nil` if not created with `ex-info`
 
-```
+```clj
 (try
   (throw (ex-info "There was a problem" {:detail 42}))
   (catch Exception e
@@ -288,7 +288,7 @@ user=> (for [letter [:a :b]
 
 ### `with-open`
 
-```
+```clj
 (let [f (clojure.java.io/writer "/tmp/new")]
   (try
     (.write f "some text")

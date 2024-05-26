@@ -14,7 +14,7 @@ This function has a single parameter `name`, however you may include any number 
 
 Invoke a function with the name of the function in "function position" (the first element of a list):
 
-```
+```clj
 user=> (greet "students")
 "Hello, students"
 ```
@@ -109,7 +109,7 @@ There is a shorter form for the `fn` anonymous function syntax implemented in th
 
 Nested anonymous functions would create an ambiguity as the parameters are not named, so nesting is not allowed.
 
-```
+```clj
 ;; Equivalent to: (fn [x] (+ 6 x))
 #(+ 6 %)
 
@@ -154,7 +154,7 @@ vector
 
 The `apply` function invokes a function with 0 or more fixed arguments, and draws the rest of the needed arguments from a final sequence. The final argument **must** be a sequence.
 
-```
+```clj
 (apply f '(1 2 3 4))    ;; same as  (f 1 2 3 4)
 (apply f 1 '(2 3 4))    ;; same as  (f 1 2 3 4)
 (apply f 1 2 '(3 4))    ;; same as  (f 1 2 3 4)
@@ -329,7 +329,7 @@ In Clojure, this is the `constantly` function.
 
 7. Define a function `triplicate` which takes another function and calls it three times, without any arguments.
 
-```
+```clj
 (defn triplicate [f] ___)
 ```
 
@@ -342,7 +342,7 @@ In Clojure, this is the `constantly` function.
 
 In Clojure, this is the complement function.
 
-```
+```clj
 (defn complement
   "Takes a fn f and returns a fn that takes the same arguments as f,
   has the same effects, if any, and returns the opposite truth value."
@@ -390,7 +390,7 @@ In fact, the Clojure `slurp` function interprets its argument as a URL first bef
 
 and returns another function which calls `f` on `x` plus any additional arguments.
 
-```
+```clj
 (defn one-less-arg [f x]
   (fn [& args] ___))
 ```
