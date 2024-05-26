@@ -749,7 +749,7 @@ Clojure 函数可以定义零个或多个参数。传递给函数的值称为参
 
 函数还支持迭代重载。这意味着你可以定义一个函数，使不同的函数体可以根据不同的 "有效性 "运行。下面是多重性函数定义的一般形式。请注意，每个类型定义都用括号括起来，并有一个参数列表：
 
-```
+```clj
 (defn multi-arity
   ;; 3-arity arguments and body
   ([first-arg second-arg third-arg]
@@ -764,7 +764,7 @@ Clojure 函数可以定义零个或多个参数。传递给函数的值称为参
 
 Arity 重载是为参数提供默认值的一种方法。在下面的示例中， `"karate"` 是 `chop-type` 参数的默认参数：
 
-```
+```clj
 (defn x-chop
   "Describe the kind of chop you're inflicting on someone"
   ([name chop-type]
@@ -1149,7 +1149,7 @@ Clojure 还提供了另一种更简洁的匿名函数创建方式。下面就是
 
 `let` 将名称与值绑定。您可以将 `let` 视为 let it be 的缩写，这也是披头士关于编程的一首优美歌曲。下面是一个例子：
 
-```
+```clj
 (let [x 3]
   x)
 ; => 3
@@ -1195,7 +1195,7 @@ Clojure 还提供了另一种更简洁的匿名函数创建方式。下面就是
 
 让我们再来看看对称函数中的 `let` 形式，以便了解究竟发生了什么：
 
-```
+```clj
 (let [[part & remaining] remaining-asym-parts]
   (recur remaining
          (into final-body-parts
@@ -1206,7 +1206,7 @@ Clojure 还提供了另一种更简洁的匿名函数创建方式。下面就是
 
 至于 `let` 表达式的正文，您将在下一节了解 `recur` 的含义。函数调用
 
-```
+```clj
 (into final-body-parts
   (set [part (matching-part part)]))
 ```
@@ -1252,7 +1252,7 @@ Clojure 还提供了另一种更简洁的匿名函数创建方式。下面就是
 
 事实上，只要使用一个普通的函数定义，就能达到同样的目的：
 
-```
+```clj
 (defn recursive-printer
   ([]
      (recursive-printer 0))
