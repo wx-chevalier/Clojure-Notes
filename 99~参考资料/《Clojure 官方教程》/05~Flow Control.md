@@ -2,7 +2,7 @@
 
 In Java, expressions return values, whereas statements do not.
 
-```
+```clj
 // "if" is a statement because it doesn't return a value:
 String s;
 if (x > 10) {
@@ -111,7 +111,7 @@ If no test is satisfied, nil is returned. A common idiom is to use a final test 
 
 Unlike `cond`, `case` will throw an exception if no value matches.
 
-```
+```clj
 user=> (defn foo [x]
          (case x
            5 "x is 5"
