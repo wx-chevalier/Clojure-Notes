@@ -12,7 +12,7 @@ Clojure 程序可以使用所有的 Java 类以及接口。和在 Java 里面一
 
 有两种方式可以访问类里面的常量的：
 
-```
+```clj
 (. java.util.Calendar APRIL) ; -> 3
 (. Calendar APRIL) ; works if the Calendar class was imported
 java.util.Calendar/APRIL
@@ -23,7 +23,7 @@ Calendar/APRIL ; works if the Calendar class was imported
 
 有两种方法可以调用 java 里面的静态方法：
 
-```
+```clj
 (. Math pow 2 4) ; -> 16.0
 (Math/pow 2 4)
 ```
@@ -85,7 +85,7 @@ Calendar/APRIL ; works if the Calendar class was imported
 
 所有的 Clojure 方法都实现了 `[java.lang.Runnable](http://java.sun.com/javase/6/docs/api/java/lang/Runnable.html)` 接口和 `[java.util.concurrent.Callable](http://java.sun.com/javase/6/docs/api/java/util/concurrent/Callable.html)` 接口。这使得非常容易把 Clojure 里面函数和 java 里面的线程一起使用。比如：
 
-```
+```clj
 (defn delayed-print [ms text]
   (Thread/sleep ms)
   (println text))
