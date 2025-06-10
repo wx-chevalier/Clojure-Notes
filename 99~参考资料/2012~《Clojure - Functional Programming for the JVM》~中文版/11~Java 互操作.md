@@ -8,7 +8,7 @@ Clojure 程序可以使用所有的 Java 类以及接口。和在 Java 里面一
   '(javax.swing JFrame JLabel))
 ```
 
-同时也可以看下宏 ns 下面的 `[:import](http://xumingming.sinaapp.com/302/clojure-functional-programming-for-the-jvm-clojure-tutorial/#nsMacro) 指令， 我们会在后面介绍的。`
+同时也可以看下宏 ns 下面的 `[:import](http://xumingming.sinaapp.com/302/clojure-functional-programming-for-the-jvm-clojure-tutorial/#nsMacro) 指令，我们会在后面介绍的。`
 
 有两种方式可以访问类里面的常量的：
 
@@ -45,7 +45,7 @@ Calendar/APRIL ; works if the Calendar class was imported
 (.get calendar Calendar/MONTH) ; -> 7
 ```
 
-一般来说我们比较推荐使用下面那种用法(.add, .get), 上面那种用法在定义宏的时候用得比较多， 这个等到我们讲到宏的时候再做详细介绍。
+一般来说我们比较推荐使用下面那种用法(.add, .get), 上面那种用法在定义宏的时候用得比较多，这个等到我们讲到宏的时候再做详细介绍。
 
 方法调用可以用 `..` 宏串起来:
 
@@ -54,9 +54,9 @@ Calendar/APRIL ; works if the Calendar class was imported
 (.. calendar getTimeZone getDisplayName) ; -> "Central Standard Time"
 ```
 
-还一个宏： `.?.` 在 `clojure.contrib.core` 名字空间里面， 它和上面..这个宏的区别是，在调用的过程中如果有一个返回结果是 nil, 它就不再继续调用了，可以防止出现 `NullPointerException` 异常。
+还一个宏： `.?.` 在 `clojure.contrib.core` 名字空间里面，它和上面..这个宏的区别是，在调用的过程中如果有一个返回结果是 nil, 它就不再继续调用了，可以防止出现 `NullPointerException` 异常。
 
-`doto` 函数可以用来调用一个对象上的多个方法。它返回它的第一个参数， 也就是所要调用方法的对象。这对于初始化一个对象的对各属性是非常方便的。 (看下面”Namespaces“那一节的 `JFrame` GUI 对象的例子). 比如:
+`doto` 函数可以用来调用一个对象上的多个方法。它返回它的第一个参数，也就是所要调用方法的对象。这对于初始化一个对象的对各属性是非常方便的。(看下面”Namespaces“那一节的 `JFrame` GUI 对象的例子). 比如:
 
 ```clj
 (doto calendar
@@ -67,7 +67,7 @@ Calendar/APRIL ; works if the Calendar class was imported
 (.format formatter (.getTime calendar)) ; -> "Aug 1, 1981"
 ```
 
-`memfn` 宏可以自动生成代码以使得 java 方法可以当成 clojure 里面的“一等公民”来对待。这个可以用来替代 clojure 里面的匿名方法。当用 `memfn` 来调用 java 里面那些需要参数的方法的时候， 你必须给每个参数指定一个名字，以让 clojure 知道你要调用的方法需要几个参数。这些名字到底是什么不重要，但是它们必须要是唯一的， 因为要用这些名字来生成 Clojure 代码的。下面的代码用了一个 map 方法来从第二个集合里面取 beginIndex 来作为参数调用第一个集合里面的字符串的 substring 方法。大家可以看一下用匿名函数和用 memfn 来直接调用 java 的方法的区别。
+`memfn` 宏可以自动生成代码以使得 java 方法可以当成 clojure 里面的“一等公民”来对待。这个可以用来替代 clojure 里面的匿名方法。当用 `memfn` 来调用 java 里面那些需要参数的方法的时候，你必须给每个参数指定一个名字，以让 clojure 知道你要调用的方法需要几个参数。这些名字到底是什么不重要，但是它们必须要是唯一的，因为要用这些名字来生成 Clojure 代码的。下面的代码用了一个 map 方法来从第二个集合里面取 beginIndex 来作为参数调用第一个集合里面的字符串的 substring 方法。大家可以看一下用匿名函数和用 memfn 来直接调用 java 的方法的区别。
 
 ```clj
 (println (map #(.substring %1 %2)
@@ -79,7 +79,7 @@ Calendar/APRIL ; works if the Calendar class was imported
 
 # 代理
 
-`proxy` 创建一个继承了指定类并且/或者实现了 0 个或者多个接口的类的对象。这对于创建那种必须要实现某个接口才能得到通知的 listener 对象很有用。举一个例子， 大家可以看下面 “Desktop Applications” 那一节的例子。那里我们创建了一个继承 JFrame 类并且实现 ActionListener 接口的类的对象。
+`proxy` 创建一个继承了指定类并且/或者实现了 0 个或者多个接口的类的对象。这对于创建那种必须要实现某个接口才能得到通知的 listener 对象很有用。举一个例子，大家可以看下面 “Desktop Applications” 那一节的例子。那里我们创建了一个继承 JFrame 类并且实现 ActionListener 接口的类的对象。
 
 # 线程
 
@@ -101,7 +101,7 @@ Calendar/APRIL ; works if the Calendar class was imported
 
 # 异常处理
 
-Clojure 代码里面抛出来的异常都是运行时异常。当然从 Clojure 代码里面调用的 java 代码还是可能抛出那种需要检查的异常的。 `try` , `catch` , `finally` 以及 `throw` 提供了和 java 里面类似的功能:
+Clojure 代码里面抛出来的异常都是运行时异常。当然从 Clojure 代码里面调用的 java 代码还是可能抛出那种需要检查的异常的。`try` , `catch` , `finally` 以及 `throw` 提供了和 java 里面类似的功能:
 
 ```clj
 (defn collection? [obj]
